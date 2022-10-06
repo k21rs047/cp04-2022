@@ -34,6 +34,12 @@
         width: 50%;
         margin: 0 auto;
     }
+    #time::after {
+        content: "秒";
+    }
+    #remain::after {
+        content: "秒";
+    }
     
     #mycanvas {
         color: #ffffff;
