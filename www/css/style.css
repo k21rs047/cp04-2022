@@ -73,4 +73,5 @@
     button {
         background-color: pink;
         font-family: Times;
+        border-radius: 20px;
     }
