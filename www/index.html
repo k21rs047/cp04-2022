@@ -143,7 +143,7 @@
             var h = parseInt(rest / 3600);
             var m = parseInt((rest - h * 3600) / 60);
             var s = parseInt(rest - h * 3600 - m * 60);
-            clock(h, m, s, true);
+           /* clock(h, m, s, true);*/
 
         }
 
@@ -159,7 +159,7 @@
         var img1 = new Image();
         var img2 = new Image();
         img1.src = "Image1.jpeg";
-        img2.src = "Image2.jpeg";
+        img2.src = "Image1-2.jpeg";
             
         var audio1 = new Audio();
         audio1.src = "jupiter.mp3";
@@ -196,11 +196,15 @@
             active = true;
             startTime = new Date();
             $('#btnB').prop('disabled', false);
+            
 
           // 画像が出ない  (読み込み方を忘れた)
-            img2.onload = function(){
-                ctx.drawImage(img2, 0, 0, 300, 300);
-            };
+            var canvas = $("#mycanvas")[0];
+            var ctx = canvas.getContext("2d");
+            // img2.onload = function(){
+            //     ctx.drawImage(img2, 0, 0, 300, 300);
+            // };
+            ctx.drawImage(img2, 0, 0, 300, 300);
         
            audio1.play();
         }
@@ -243,7 +247,7 @@
                 analog(rest);
 
                 //2個目の音楽がならない、文字が出ない(restで反応しない)
-                if(rest > 60) {
+                if(rest < 60) {
                     audio1.pause();
                     audio2.play();
                 }
