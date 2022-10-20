@@ -167,8 +167,10 @@
         audio1.src = "jupiter.mp3";
         var audio2 = new Audio();
         audio2.src = "Dvorak_m.mp3";
-        
-
+        var sound1 = new Audio();
+        sound1.src = "Shining5.mp3";
+        var sound2 = new Audio();
+        sound2.src = "jumping.mp3";
 
 
         // ボタンの初期設定
@@ -211,6 +213,7 @@
             ctx.drawImage(img2, 0, 0, 300, 300);
         
            audio1.play();
+           sound2.pause();
         }
 
         // ButtonBがクリックされた時の処理
@@ -237,6 +240,7 @@
             $("#remain").html("You will be a HERO: " + period);
             $("#status").html("You are able to be a HERO!!");
             $('#btnB').prop('disabled', true);
+            sound2.pause();
         }
 
 
@@ -268,6 +272,7 @@
             
             if (rest <= 0 && rest >= -2) {
                 audio2.pause();
+                sound1.play();
                 alarm();
                 var canvas = $("#mycanvas")[0];
                 var ctx = canvas.getContext("2d");
@@ -276,7 +281,9 @@
             }
             if (rest < -2 ){
                 active = false;
+                sound1.pause();
                 audio2.pause();
+                sound2.play();
                 alarm();
             }
 
