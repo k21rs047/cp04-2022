@@ -211,9 +211,15 @@
             //     ctx.drawImage(img2, 0, 0, 300, 300);
             // };
             ctx.drawImage(img2, 0, 0, 300, 300);
-        
+
            audio1.play();
            sound2.pause();
+
+           audio1.addEventListener("ended", function () {
+           audio1.currentTime = 0;
+           audio1.play();
+          }, false);
+        
         }
 
         // ButtonBがクリックされた時の処理
