@@ -246,11 +246,16 @@
             $("#remain").html("You will be a HERO: " + period);
             $("#status").html("You are able to be a HERO!!");
             $('#btnB').prop('disabled', true);
+            var canvas = $("#mycanvas")[0];
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img1, 0, 0, 300, 300);
+                
             sound2.pause();
             audio1.pause();
             audio2.pause();
             audio1.currentTime = 0;
             audio2.currentTime = 0;
+
         }
 
 
@@ -291,18 +296,21 @@
             if (rest <= 0 && rest >= -2) {
                 audio2.pause();
                 sound1.play();
-                alarm();
                 var canvas = $("#mycanvas")[0];
                 var ctx = canvas.getContext("2d");
                 ctx.drawImage(img3, 0, 0, 300, 300);
                 
             }
             if (rest < -2 ){
+                var canvas = $("#mycanvas")[0];
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img1, 0, 0, 300, 300);
+                
                 active = false;
                 sound1.pause();
                 audio2.pause();
                 sound2.play();
-                alarm();
+                
             }
 
 
