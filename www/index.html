@@ -158,13 +158,16 @@
         var period = 0;
         var img1 = new Image();
         var img2 = new Image();
+        var img3 = new Image();
         img1.src = "Image1.jpeg";
         img2.src = "Image1-2.jpeg";
+        img3.src = "Image3.jpeg";
             
         var audio1 = new Audio();
         audio1.src = "jupiter.mp3";
         var audio2 = new Audio();
         audio2.src = "Dvorak_m.mp3";
+        
 
 
 
@@ -186,6 +189,7 @@
             img1.onload = function(){
                 ctx.drawImage(img1, 0, 0, 300, 300);
             };
+            ctx.drawImage(img1, 0, 0, 300, 300);
           
             //audio1.play();
            
@@ -215,7 +219,9 @@
           
              if(active == false){
                audio1.pause();
+               audio2.pause();
                audio1.currentTime = 0;
+               audio2.currentTime = 0;
             }
 
         }
@@ -260,8 +266,17 @@
 
 
             
-            if (rest <= 0) {
+            if (rest <= 0 && rest >= -2) {
+                audio2.pause();
+                alarm();
+                var canvas = $("#mycanvas")[0];
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img3, 0, 0, 300, 300);
+                
+            }
+            if (rest < -2 ){
                 active = false;
+                audio2.pause();
                 alarm();
             }
 
