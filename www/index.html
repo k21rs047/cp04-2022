@@ -241,6 +241,10 @@
             $("#status").html("You are able to be a HERO!!");
             $('#btnB').prop('disabled', true);
             sound2.pause();
+            audio1.pause();
+            audio2.pause();
+            audio1.currentTime = 0;
+            audio2.currentTime = 0;
         }
 
 
