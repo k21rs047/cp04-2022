@@ -171,7 +171,8 @@
         sound1.src = "Shining5.mp3";
         var sound2 = new Audio();
         sound2.src = "jumping.mp3";
-
+        var sound3 = new Audio();
+        sound3.src = "water.mp3";
 
         // ボタンの初期設定
         function init() {
@@ -238,7 +239,7 @@
         // ButtonCがクリックされた時の処理
         function btnCClick(e) {
             alarm();
-
+            sound3.play();
             active = false;
             period = 60 * parseInt($("#minute").val()) + parseInt($("#second").val());
 
